@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据收集说明 - STAX</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #667eea;
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #999;
+            margin-bottom: 40px;
+            font-size: 14px;
+        }
+        
+        h2 {
+            color: #764ba2;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            color: #4ecca3;
+            font-size: 16px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        .highlight {
+            background-color: #f0f4ff;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .table-responsive {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        table th {
+            background-color: #f0f4ff;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .important {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+        }
+        
+        .update-date {
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 数据收集说明</h1>
+        <div class="subtitle">STAX 应用数据收集政策</div>
+        
+        <h2>1. 概述</h2>
+        <p>
+            欢迎使用STAX应用！本数据收集说明详细说明了我们如何收集、使用和保护您的个人信息。
+            我们致力于透明地向您披露我们的数据处理方式，并确保您对自己的信息有充分的控制权。
+        </p>
+        
+        <h2>2. 我们收集哪些数据</h2>
+        
+        <h3>2.1 设备信息</h3>
+        <p>为了提供最佳的应用体验，我们会收集以下设备信息：</p>
+        <ul>
+            <li><strong>设备型号和操作系统版本</strong> - 用于优化应用性能</li>
+            <li><strong>设备唯一标识符</strong> - 用于追踪应用崩溃和错误</li>
+            <li><strong>处理器和内存信息</strong> - 用于性能监控</li>
+            <li><strong>显示屏分辨率</strong> - 用于适配界面显示</li>
+        </ul>
+        
+        <h3>2.2 应用使用数据</h3>
+        <p>我们收集应用的使用统计信息，以改进用户体验：</p>
+        <ul>
+            <li><strong>应用启动和关闭时间</strong> - 用于了解用户行为</li>
+            <li><strong>功能使用情况</strong> - 追踪哪些功能被最常使用</li>
+            <li><strong>崩溃报告</strong> - 当应用异常崩溃时</li>
+            <li><strong>性能指标</strong> - 帧率、延迟等性能数据</li>
+        </ul>
+        
+        <h3>2.3 位置信息</h3>
+        <div class="highlight">
+            <p><strong>⚠️ 位置权限说明：</strong></p>
+            <p>应用可能请求访问位置信息权限。此权限<strong>仅在用户明确授予时</strong>使用，用途限于：</p>
+            <ul>
+                <li>增强AR/MR场景的地理感知效果</li>
+                <li>优化VR体验中的空间定位</li>
+            </ul>
+            <p>我们不会将位置数据用于商业目的或与第三方共享。</p>
+        </div>
+        
+        <h3>2.4 摄像头和音频权限</h3>
+        <p>应用可能请求以下权限：</p>
+        <ul>
+            <li><strong>摄像头权限</strong> - 仅用于MR（混合现实）模式，让您能看到真实环境</li>
+            <li><strong>音频权限</strong> - 用于音效反馈和声音提示</li>
+        </ul>
+        <p>这些权限<strong>仅在用户明确授予</strong>时才会被请求和使用。</p>
+        
+        <h3>2.5 用户内容</h3>
+        <p>
+            应用本地存储用户在VR环境中创建的内容（如生成的几何体、颜色选择等）。
+            这些数据<strong>仅存储在您的设备上</strong>，不会上传到服务器。
+        </p>
+        
+        <h2>3. 数据的使用目的</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>收集的数据</th>
+                    <th>使用目的</th>
+                    <th>法律依据</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>设备信息</td>
+                    <td>优化应用性能，确保兼容性</td>
+                    <td>应用正常运行的必要</td>
+                </tr>
+                <tr>
+                    <td>应用使用数据</td>
+                    <td>改进功能，分析用户行为</td>
+                    <td>合法利益</td>
+                </tr>
+                <tr>
+                    <td>崩溃报告</td>
+                    <td>诊断和修复问题</td>
+                    <td>应用稳定性的必要</td>
+                </tr>
+                <tr>
+                    <td>位置信息</td>
+                    <td>增强MR/VR体验</td>
+                    <td>用户明确同意</td>
+                </tr>
+                <tr>
+                    <td>摄像头/音频</td>
+                    <td>MR模式、音效反馈</td>
+                    <td>用户明确同意</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2>4. 数据的收集方式</h2>
+        <p>我们通过以下方式收集数据：</p>
+        <ul>
+            <li><strong>直接收集</strong> - 应用运行时自动收集的设备和使用信息</li>
+            <li><strong>用户授权</strong> - 仅在用户明确授予权限时收集位置、摄像头和音频数据</li>
+            <li><strong>分析工具</strong> - 使用匿名分析服务跟踪应用性能</li>
+            <li><strong>错误报告</strong> - 应用崩溃时收集诊断信息</li>
+        </ul>
+        
+        <h2>5. 数据的存储和安全</h2>
+        
+        <h3>5.1 存储位置</h3>
+        <ul>
+            <li>大部分数据存储在<strong>您的PICO设备</strong>上</li>
+            <li>性能指标和崩溃报告可能通过加密连接传输到我们的安全服务器</li>
+            <li>所有传输都使用HTTPS加密</li>
+        </ul>
+        
+        <h3>5.2 数据安全措施</h3>
+        <ul>
+            <li>采用行业标准的加密技术保护数据</li>
+            <li>实施访问控制，限制只有授权人员能访问数据</li>
+            <li>定期进行安全审计和评估</li>
+            <li>遵守数据保护法规</li>
+        </ul>
+        
+        <h2>6. 数据保留</h2>
+        <p>
+            我们会根据以下原则保留数据：
+        </p>
+        <ul>
+            <li><strong>本地数据</strong> - 除非您手动删除，否则保存在设备上</li>
+            <li><strong>分析数据</strong> - 通常保留12个月后自动删除</li>
+            <li><strong>崩溃报告</strong> - 保留30天用于分析和改进</li>
+            <li><strong>性能指标</strong> - 保留90天用于监控应用健康状况</li>
+        </ul>
+        
+        <h2>7. 数据共享</h2>
+        <div class="highlight">
+            <p><strong>✅ 重要保证：</strong></p>
+            <p>
+                我们<span class="important">不会与第三方共享您的个人数据</span>用于营销或商业目的。
+                数据仅在以下情况下被共享：
+            </p>
+            <ul>
+                <li>遵守法律或政府要求</li>
+                <li>保护我们的权利和安全</li>
+                <li>防止欺诈或非法活动</li>
+                <li>获得您的明确同意</li>
+            </ul>
+        </div>
+        
+        <h2>8. 儿童隐私保护</h2>
+        <p>
+            STAX应用不特意收集13岁以下儿童的个人数据。
+            如果我们意识到收集了儿童的数据，我们将立即删除这些信息。
+        </p>
+        
+        <h2>9. 用户权利</h2>
+        <p>根据适用的数据保护法，您有权：</p>
+        <ul>
+            <li><strong>访问权</strong> - 了解我们收集的关于您的数据</li>
+            <li><strong>更正权</strong> - 更正任何不准确的数据</li>
+            <li><strong>删除权</strong> - 请求删除您的数据</li>
+            <li><strong>限制权</strong> - 限制我们对数据的使用</li>
+            <li><strong>撤销权</strong> - 撤销之前的同意</li>
+            <li><strong>数据可携权</strong> - 获取您的数据副本</li>
+        </ul>
+        
+        <p>要行使这些权利，请联系我们的隐私团队。</p>
+        
+        <h2>10. 国际数据传输</h2>
+        <p>
+            如果您位于欧盟或其他地区，您的数据可能被传输到其他国家/地区进行处理。
+            我们承诺采取措施确保您的数据继续受到相同水平的保护。
+        </p>
+        
+        <h2>11. 第三方服务</h2>
+        <p>
+            应用可能使用第三方服务来帮助我们提供和改进服务，这些服务包括：
+        </p>
+        <ul>
+            <li><strong>分析服务</strong> - 用于追踪应用使用情况</li>
+            <li><strong>崩溃报告工具</strong> - 用于诊断技术问题</li>
+            <li><strong>云服务</strong> - 用于性能优化（可选）</li>
+        </ul>
+        <p>这些第三方服务提供商同样受到严格的数据保护协议约束。</p>
+        
+        <h2>12. 政策更新</h2>
+        <p>
+            我们可能不时更新本数据收集说明以反映法律变化或我们实践的改进。
+            我们会在进行重大更改时通知您。
+        </p>
+        
+        <h2>13. 联系我们</h2>
+        <p>
+            如果您对本数据收集说明有任何疑问或关切，请通过以下方式与我们联系：
+        </p>
+        <ul>
+            <li><strong>电子邮件</strong> - <a href="https://github.com/looklee/STAX/issues">GitHub Issues</a></li>
+            <li><strong>应用内反馈</strong> - 通过应用的帮助菜单</li>
+            <li><strong>隐私请求</strong> - <a href="https://github.com/looklee/STAX/issues">GitHub Issues</a></li>
+        </ul>
+        
+        <div class="update-date">
+            <p><strong>最后更新日期：2025年12月</strong></p>
+            <p>版本 1.0</p>
+        </div>
+    </div>
+</body>
+</html>

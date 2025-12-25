@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>法律文档 - STAX</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: white;
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 50px;
+            font-size: 16px;
+        }
+        
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .document-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .document-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card-header {
+            padding: 30px 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .card-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        
+        .card-title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .card-subtitle {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card-description {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        
+        .card-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .card-features li {
+            padding: 8px 0;
+            color: #555;
+            font-size: 13px;
+        }
+        
+        .card-features li::before {
+            content: "✓ ";
+            color: #4ecca3;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .card-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .card-button:hover {
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            transform: scale(1.05);
+        }
+        
+        .info-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .info-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .info-section p {
+            color: #666;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .info-section ul {
+            margin-left: 20px;
+            color: #666;
+        }
+        
+        .info-section li {
+            margin-bottom: 10px;
+        }
+        
+        .important-box {
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        
+        .file-list {
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .file-item {
+            padding: 12px;
+            margin-bottom: 10px;
+            background: white;
+            border-radius: 6px;
+            border-left: 3px solid #4ecca3;
+        }
+        
+        .file-name {
+            font-weight: bold;
+            color: #667eea;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .file-desc {
+            color: #999;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+        
+        .footer {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .footer h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .footer p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .contact-info {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            margin: 10px 0;
+            color: #667eea;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background: #764ba2;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 24px;
+            }
+            
+            .documents-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 STAX 法律文档中心</h1>
+        <p class="subtitle">用户必读的隐私保护和服务条款</p>
+        
+        <div class="documents-grid">
+            <!-- 文档卡片 1 -->
+            <div class="document-card">
+                <div class="card-header">
+                    <div class="card-icon">📊</div>
+                    <div class="card-title">数据收集说明</div>
+                    <div class="card-subtitle">我们如何收集您的信息</div>
+                </div>
+                <div class="card-content">
+                    <p class="card-description">
+                        详细说明STAX应用收集哪些数据，如何收集，以及为什么需要这些数据。
+                        了解您的数据如何被保护和使用。
+                    </p>
+                    <ul class="card-features">
+                        <li>设备信息收集</li>
+                        <li>应用使用数据</li>
+                        <li>位置和权限信息</li>
+                        <li>数据存储和安全</li>
+                        <li>用户权利说明</li>
+                    </ul>
+                    <a href="privacy_data_collection.html" class="card-button">
+                        阅读完整文档 →
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 文档卡片 2 -->
+            <div class="document-card">
+                <div class="card-header">
+                    <div class="card-icon">🔒</div>
+                    <div class="card-title">隐私保护承诺</div>
+                    <div class="card-subtitle">我们的隐私保护承诺</div>
+                </div>
+                <div class="card-content">
+                    <p class="card-description">
+                        STAX对隐私保护的正式承诺。了解我们如何保护您的数据，
+                        以及我们采取的安全措施。
+                    </p>
+                    <ul class="card-features">
+                        <li>隐私优先原则</li>
+                        <li>核心隐私承诺</li>
+                        <li>数据安全措施</li>
+                        <li>法规遵守</li>
+                        <li>用户权利保护</li>
+                    </ul>
+                    <a href="privacy_protection_commitment.html" class="card-button">
+                        阅读完整文档 →
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 文档卡片 3 -->
+            <div class="document-card">
+                <div class="card-header">
+                    <div class="card-icon">📋</div>
+                    <div class="card-title">用户条款</div>
+                    <div class="card-subtitle">使用条款和法律条件</div>
+                </div>
+                <div class="card-content">
+                    <p class="card-description">
+                        使用STAX应用的完整法律条款。包含应用使用规则、
+                        责任限制和其他重要法律信息。
+                    </p>
+                    <ul class="card-features">
+                        <li>应用许可和使用</li>
+                        <li>用户行为标准</li>
+                        <li>知识产权保护</li>
+                        <li>责任限制</li>
+                        <li>终止和停用</li>
+                    </ul>
+                    <a href="user_terms_conditions.html" class="card-button">
+                        阅读完整文档 →
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 信息部分 -->
+        <div class="info-section">
+            <h2>📌 重要信息</h2>
+            <p>
+                欢迎使用STAX应用！为了确保您对我们的服务有完整的了解，
+                我们提供了以下法律文档。这些文档对所有用户都很重要：
+            </p>
+            
+            <div class="important-box">
+                <strong>✓ 请花时间阅读这些文档</strong>
+                <p>
+                    这些文档详细说明了您的权利和责任。通过使用STAX应用，
+                    您同意遵守这些条款。
+                </p>
+            </div>
+            
+            <h3 style="color: #667eea; margin-top: 25px; margin-bottom: 15px;">📁 生成的文件</h3>
+            <div class="file-list">
+                <div class="file-item">
+                    <div class="file-name">privacy_data_collection.html</div>
+                    <div class="file-desc">数据收集说明文档 (335行代码)</div>
+                </div>
+                <div class="file-item">
+                    <div class="file-name">privacy_protection_commitment.html</div>
+                    <div class="file-desc">隐私保护承诺文档 (477行代码)</div>
+                </div>
+                <div class="file-item">
+                    <div class="file-name">user_terms_conditions.html</div>
+                    <div class="file-desc">用户条款文档 (481行代码)</div>
+                </div>
+                <div class="file-item">
+                    <div class="file-name">LEGAL_DOCUMENTS.html</div>
+                    <div class="file-desc">法律文档索引页面 (本页面)</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 使用指南 -->
+        <div class="info-section">
+            <h2>📖 如何使用这些文档</h2>
+            <p>
+                <strong>第一步：阅读数据收集说明</strong><br>
+                了解STAX如何收集、使用和保护您的个人数据。
+            </p>
+            <p>
+                <strong>第二步：查看隐私保护承诺</strong><br>
+                了解我们对隐私保护的具体承诺和采取的安全措施。
+            </p>
+            <p>
+                <strong>第三步：理解用户条款</strong><br>
+                了解使用STAX应用时的权利和责任。
+            </p>
+            
+            <h3 style="color: #667eea; margin-top: 20px; margin-bottom: 15px;">🌐 上架用途</h3>
+            <p>
+                这些HTML文档可以直接用于：
+            </p>
+            <ul>
+                <li>
+                    <strong>PICO商店上架</strong> - 复制这些HTML文件的内容到PICO开发者平台
+                </li>
+                <li>
+                    <strong>应用内显示</strong> - 可以在应用中嵌入这些页面供用户查看
+                </li>
+                <li>
+                    <strong>网站展示</strong> - 可以在官方网站上发布这些文档
+                </li>
+                <li>
+                    <strong>法律审查</strong> - 提供给律师进行法律审查和修改
+                </li>
+            </ul>
+        </div>
+        
+        <!-- 关键要点 -->
+        <div class="info-section">
+            <h2>⚡ 关键要点总结</h2>
+            
+            <h3 style="color: #667eea; margin-top: 15px; margin-bottom: 10px;">🔍 数据收集</h3>
+            <p>
+                STAX仅收集提供应用功能所必需的最少数据。
+                所有位置、摄像头和音频数据都需要您的明确同意。
+            </p>
+            
+            <h3 style="color: #667eea; margin-top: 15px; margin-bottom: 10px;">🛡️ 隐私保护</h3>
+            <p>
+                我们使用行业标准的加密和安全措施保护您的数据。
+                您的数据不会被出售给第三方用于营销目的。
+            </p>
+            
+            <h3 style="color: #667eea; margin-top: 15px; margin-bottom: 10px;">👤 用户权利</h3>
+            <p>
+                您有权访问、修改、删除您的数据，以及撤销之前给予的同意。
+            </p>
+            
+            <h3 style="color: #667eea; margin-top: 15px; margin-bottom: 10px;">⚖️ 法律遵守</h3>
+            <p>
+                STAX遵守包括GDPR、CCPA和中国PIPL在内的所有适用数据保护法。
+            </p>
+        </div>
+        
+        <!-- 页脚 -->
+        <div class="footer">
+            <h3>💬 有疑问？</h3>
+            <p>如果您对这些法律文档有任何疑问，请与我们联系：</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>📧 隐私相关：</strong> <a href="https://github.com/looklee/STAX/issues">GitHub Issues</a>
+                </div>
+                <div class="contact-item">
+                    <strong>📧 技术支持：</strong> <a href="https://github.com/looklee/STAX/issues">GitHub Issues</a>
+                </div>
+                <div class="contact-item">
+                    <strong>📧 法律问题：</strong> <a href="https://github.com/looklee/STAX/issues">GitHub Issues</a>
+                </div>
+            </div>
+            
+            <div style="margin-top: 25px; padding-top: 25px; border-top: 1px solid #eee; color: #999; font-size: 13px;">
+                <p><strong>版本：</strong> 1.0</p>
+                <p><strong>最后更新：</strong> 2025年12月</p>
+                <p style="margin-top: 15px;">
+                    © 2025 STAX. 保留所有权利。<br>
+                    这些法律文档受中国法律管辖。
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
